@@ -1,0 +1,45 @@
+﻿@page "/"
+@model EmployeeManagement.Pages.Employees.IndexModel
+@{
+}
+
+<h3>Employee List</h3>
+<table border="1" cellpadding="2" cellspacing="2">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>DoB</th>
+        <th>Email</th>
+        <th>Department</th>
+         
+        <th>Edit Action</th>
+        <th>Delete Actions</th>
+    </tr>
+
+
+    @foreach (var obj in Model.EmployeesList)
+    {
+        <tr>
+            <td>@obj.Id</td>
+            <td>@obj.Name</td>
+            <td>@obj.Dob.ToShortDateString()</td>
+            <td>@obj.Email</td>
+            <td>@obj.Department</td>
+          
+            <td>  <a asp-page="/Employees/Edit" asp-route-id="@obj.Id">Edit</a> </td>
+
+            <td>  <a asp-page="/Employees/Delete" asp-route-id="@obj.Id">Delete</a> </td>
+ 
+        </tr>
+    }
+
+</table>
+
+<div>
+
+    <br />
+    <u><a class="nav-link text-dark" asp-area="" asp-page="/Employees/Add">Add New Employee</a></u>
+
+    <br />
+    <u><a class="nav-link text-dark" asp-area="" asp-page="/Employees/Search">Search Employee</a></u>
+</div>

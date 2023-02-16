@@ -1,0 +1,35 @@
+﻿@page
+@model EmployeeManagement.Pages.Employees.AddModel
+@{
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Add Employee</h4>
+        <hr />
+        <form method="post">
+          
+          <label for="fname">Name:</label><br>
+          <input type="text" id="Name" name="Name"><br>
+
+            <label for="fname">Email:</label><br>
+            <input type="email" id="EmailAddress" name="EmailAddress" value="" /><br>
+
+            <label for="fname">Department:</label><br>
+            <input type="text" id="Department" name="Department" value="" /><br>
+
+          <label for="lname">Dob:</label><br>
+            <input type="date" id="Dob" name="Dob"><br>
+          <br>
+            <input type="submit">
+
+        </form>
+         
+
+    </div>
+}
+ 

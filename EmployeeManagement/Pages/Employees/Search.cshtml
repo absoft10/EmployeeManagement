@@ -1,0 +1,64 @@
+﻿@page
+@model EmployeeManagement.Pages.Employees.SearchModel
+@{
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Search Employee</h4>
+        <hr />
+        <form method="post">
+
+            <label for="fname">Employee to Search:</label><br>
+            <input type="text" id="Name" name="Query"><br>
+            <br>
+            <input type="submit">
+             
+
+        </form>
+
+
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    @if(Model.SearchResult!=null)
+    {
+
+        <table border="1" cellpadding="2" cellspacing="2">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>DoB</th>
+                <th>Email</th>
+                <th>Department</th>
+
+                
+            </tr>
+
+
+            @foreach (var obj in Model.SearchResult)
+            {
+                <tr>
+                    <td>@obj.Id</td>
+                    <td>@obj.Name</td>
+                    <td>@obj.Dob.ToShortDateString()</td>
+                    <td>@obj.Email</td>
+                    <td>@obj.Department</td>
+
+                   
+
+                </tr>
+            }
+
+        </table>
+    }else
+    {
+
+    }
+}
